@@ -63,9 +63,29 @@
         .music-player button:hover {
             color: red;
         }
+
+        /* Botón de volver */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: red;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: darkred;
+        }
     </style>
 </head>
 <body>
+    <!-- Botón de volver -->
+    <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
+
     <div class="sidebar">
         <a href="#">Sobre Nosotros</a>
         <a href="#">Menú</a>
@@ -82,15 +102,18 @@
         <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
     </div>
 
-    <!-- Iframe de YouTube -->
-    <iframe id="music-iframe" width="0" height="0" src="https://www.youtube.com/embed/4ZBLaHCh8Bs?autoplay=1&loop=1&playlist=4ZBLaHCh8Bs" frameborder="0" allow="autoplay" style="display: none;"></iframe>
+    <!-- Audio -->
+    <audio id="background-music" autoplay loop>
+        <source src="ruta/a/tu/musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 
     <script>
         // Control del reproductor
+        const audio = document.getElementById("background-music");
         const playPauseBtn = document.getElementById("play-pause-btn");
         const muteBtn = document.getElementById("mute-btn");
         const volumeSlider = document.getElementById("volume-slider");
-        const musicIframe = document.getElementById("music-iframe");
 
         let isPlaying = true;
         let isMuted = false;
@@ -98,10 +121,10 @@
         // Pausar/reanudar
         playPauseBtn.addEventListener("click", () => {
             if (isPlaying) {
-                musicIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                audio.pause();
                 playPauseBtn.textContent = "⏯️";
             } else {
-                musicIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                audio.play();
                 playPauseBtn.textContent = "⏸️";
             }
             isPlaying = !isPlaying;
@@ -110,10 +133,10 @@
         // Silenciar/desilenciar
         muteBtn.addEventListener("click", () => {
             if (isMuted) {
-                musicIframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                audio.muted = false;
                 muteBtn.textContent = "🔊";
             } else {
-                musicIframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                audio.muted = true;
                 muteBtn.textContent = "🔇";
             }
             isMuted = !isMuted;
@@ -121,8 +144,27 @@
 
         // Control de volumen
         volumeSlider.addEventListener("input", () => {
-            const volume = volumeSlider.value;
-            musicIframe.contentWindow.postMessage(`{"event":"command","func":"setVolume","args":[${volume * 100}]}`, '*');
+            audio.volume = volumeSlider.value;
+        });
+
+        // Guardar el estado de la música al cambiar de página
+        window.addEventListener("beforeunload", () => {
+            localStorage.setItem("musicTime", audio.currentTime);
+            localStorage.setItem("isPlaying", isPlaying);
+        });
+
+        // Restaurar el estado de la música al cargar la página
+        window.addEventListener("load", () => {
+            if (localStorage.getItem("musicTime")) {
+                audio.currentTime = localStorage.getItem("musicTime");
+            }
+            if (localStorage.getItem("isPlaying") === "true") {
+                audio.play();
+                playPauseBtn.textContent = "⏸️";
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = "⏯️";
+            }
         });
     </script>
 </body>
