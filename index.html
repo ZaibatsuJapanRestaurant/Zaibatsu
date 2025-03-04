@@ -3,51 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaibatsu Japan Restaurant</title>
+    <title>Menú - Zaibatsu</title>
     <style>
         body {
             background-color: #1a1a1a;
             color: white;
-            text-align: center;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             margin: 0;
         }
-        .circle {
-            width: 150px;
-            height: 150px;
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
             background-color: red;
-            border-radius: 50%;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .sidebar a:hover {
+            background-color: darkred;
+        }
+        .content {
+            flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 40px;
-            font-weight: bold;
-        }
-        .button {
-            background-color: red;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-        .button img {
-            width: 20px;
-            height: 20px;
+            font-size: 24px;
         }
     </style>
 </head>
 <body>
-    <div class="circle">財閥</div>
-    <h1>ZAIBATSU</h1>
-    <p>JAPAN RESTAURANT</p>
-    <button class="button">
-        <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Play">
-    </button>
+    <div class="sidebar">
+        <a href="#">Sobre Nosotros</a>
+        <a href="#">Menú</a>
+        <a href="#">Contacto</a>
+    </div>
+    <div class="content">
+        <p>Bienvenido a Zaibatsu Japan Restaurant</p>
+    </div>
 </body>
 </html>
