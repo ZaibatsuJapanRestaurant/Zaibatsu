@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="https://www.youtube.com/embed/4ZBLaHCh8Bs" type="audio/mp3">
+    </audio>
+    
+    <script>
+        const audio = document.getElementById("background-music");
+        
+        // Restaurar el tiempo de reproducción anterior si se cambia de página
+        if (localStorage.getItem("musicTime")) {
+            audio.currentTime = localStorage.getItem("musicTime");
+        }
+
+        audio.play();
+
+        // Guardar el tiempo actual en localStorage periódicamente
+        setInterval(() => {
+            localStorage.setItem("musicTime", audio.currentTime);
+        }, 1000);
+    </script>
+</body>
+</html>
