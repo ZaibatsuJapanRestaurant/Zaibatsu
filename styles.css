@@ -43,7 +43,8 @@ nav .nav-links a:hover {
 }
 
 .center-logo {
-    max-width: 50px; /* Ajusta el tamaño del logo a 100px */
+    width: 50px; /* Establece el ancho del logo a 50px */
+    height: auto; /* Mantiene la proporción del logo */
     margin-bottom: 20px; /* Espacio debajo del logo */
 }
 
