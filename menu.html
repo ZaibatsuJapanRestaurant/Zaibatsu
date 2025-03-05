@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Zaibatsu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <div class="logo">
+            <img src="imagenes/logo.png" alt="Logo Zaibatsu">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="menu.html">Menú</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main>
+        <section class="hero">
+            <h1>Nuestro Menú</h1>
+            <p>Descubre nuestras deliciosas opciones.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Zaibatsu Japan Restaurant. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Iframe para la música -->
+    <iframe id="music-iframe" src="music-player.html" style="display: none;"></iframe>
+
+    <!-- Reproductor de música -->
+    <div class="music-player">
+        <button id="play-pause-btn">⏯️</button>
+        <button id="mute-btn">🔊</button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
