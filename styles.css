@@ -5,6 +5,9 @@ body {
     padding: 0;
     background-color: #1a1a1a;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
 }
 
 /* Barra de navegación */
@@ -71,26 +74,4 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: #ff0000;
-    margin-top: 50px;
-}
-
-/* Control de musica */
-.music-controls {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.music-controls button {
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 10px;
-}
-
-.music-controls button:hover {
-    background-color: darkred;
-}
+    margin-top: auto; /* Aseg
