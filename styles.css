@@ -1,0 +1,67 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3e3e3e; /* Fondo gris oscuro */
+    color: white; /* Color del texto */
+    font-family: 'Montserrat', sans-serif; /* Fuente general */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+}
+
+/* Banner superior */
+.banner {
+    background-color: #ff0000; /* Color rojo */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+}
+
+.banner h1 {
+    font-weight: 900; /* Montserrat Black */
+    margin: 0;
+}
+
+.banner h2 {
+    font-weight: 400; /* Montserrat Regular */
+    margin: 0;
+}
+
+/* Contenido principal */
+main {
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno */
+}
+
+.logo {
+    width: 150px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene la proporción del logo */
+    margin: 20px 0; /* Espacio alrededor del logo */
+}
+
+.welcome-text {
+    font-weight: 700; /* Montserrat Bold */
+    margin: 10px 0; /* Espacio entre las frases */
+}
+
+/* Botón de play */
+.play-button-container {
+    background-color: #ff0000; /* Color rojo */
+    border-radius: 10px; /* Esquinas redondeadas */
+    display: inline-block; /* Permite centrar el botón */
+    padding: 20px; /* Espaciado interno */
+}
+
+.play-button {
+    color: white; /* Color del botón */
+    font-size: 30px; /* Tamaño del botón */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/* Pie de página */
+footer {
+    background-color: #ff0000; /* Color rojo */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+}
