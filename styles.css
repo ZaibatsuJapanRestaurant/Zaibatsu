@@ -60,7 +60,21 @@ p {
 .play-button-container {
     margin-top: 20px;
     background-color: #ff0000;
-    padding: 10px 70px;
+    padding: 15px 30px;
     border-radius: 10px;
     display: inline-block;
+}
+
+.play-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.soundcloud-player {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
 }
