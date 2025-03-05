@@ -1,34 +1,40 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const audio = document.getElementById("background-music");
-    const toggleButton = document.getElementById("toggle-button");
-    const playIcon = document.getElementById("play-icon");
+// Control del reproductor
+const musicIframe = document.getElementById("music-iframe");
+const playPauseBtn = document.getElementById("play-pause-btn");
+const muteBtn = document.getElementById("mute-btn");
+const volumeSlider = document.getElementById("volume-slider");
 
-    // Verificar si la música ya está en reproducción
-    if (localStorage.getItem("musicPlaying") === "true") {
-        audio.play();
-    } else {
+let isPlaying = true;
+let isMuted = false;
+
+// Pausar/reanudar
+playPauseBtn.addEventListener("click", () => {
+    const audio = musicIframe.contentDocument.getElementById("background-music");
+    if (isPlaying) {
         audio.pause();
+        playPauseBtn.textContent = "⏯️";
+    } else {
+        audio.play();
+        playPauseBtn.textContent = "⏸️";
     }
+    isPlaying = !isPlaying;
+});
 
-    // Almacenar el estado de la música
-    audio.addEventListener("play", function() {
-        localStorage.setItem("musicPlaying", "true");
-        playIcon.classList.remove("fa-play");
-        playIcon.classList.add("fa-pause");
-    });
+// Silenciar/desilenciar
+muteBtn.addEventListener("click", () => {
+    const audio = musicIframe.contentDocument.getElementById("background-music");
+    if (isMuted) {
+        audio.muted = false;
+        muteBtn.textContent = "🔊";
+    } else {
+        audio.muted = true;
+        muteBtn.textContent = "🔇";
+    }
+    isMuted = !isMuted;
+});
 
-    audio.addEventListener("pause", function() {
-        localStorage.setItem("musicPlaying", "false");
-        playIcon.classList.remove("fa-pause");
-        playIcon.classList.add("fa-play");
-    });
-
-    // Controlar la reproducción
-    toggleButton.addEventListener("click", function() {
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    });
+// Control de volumen
+volumeSlider.addEventListener("input", () => {
+    const audio = musicIframe.contentDocument.getElementById("background-music");
+    audio.volume = volumeSlider.value;
 });
