@@ -13,14 +13,9 @@ body {
 /* Barra de navegación */
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Centra los enlaces de navegación */
     padding: 20px;
     background-color: #ff0000;
-}
-
-nav .logo img {
-    height: 50px;
 }
 
 nav .nav-links {
@@ -48,7 +43,8 @@ nav .nav-links a:hover {
 }
 
 .center-logo {
-    max-width: 100px; /* Ajusta el tamaño del logo */
+    max-width: 150px; /* Ajusta el tamaño del logo */
+    margin-bottom: 20px; /* Espacio debajo del logo */
 }
 
 .zaibatsu-title {
@@ -62,9 +58,4 @@ nav .nav-links a:hover {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400; /* Regular */
     font-size: 24px;
-    margin-bottom: 40px;
-}
-
-.hero p {
-    font-size: 24px;
-   
+    margin-bottom
