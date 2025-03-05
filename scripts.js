@@ -1,5 +1,50 @@
-// Función para navegar a la siguiente página
-function navigateToNextPage() {
-    // Redirigir a la siguiente página
-    window.location.href = 'next-page.html';
+let player;
+
+// Función para inicializar el reproductor de YouTube
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('youtube-player', {
+        height: '0',
+        width: '0',
+        videoId: '4ZBLaHCh8Bs', // ID del video de YouTube
+        playerVars: {
+            autoplay: 0, // No autoplay (requiere interacción del usuario)
+            controls: 0, // Sin controles
+            disablekb: 1, // Deshabilitar teclado
+            modestbranding: 1, // Ocultar logo de YouTube
+            loop: 1, // Repetir el video
+            playlist: '4ZBLaHCh8Bs' // Necesario para el loop
+        },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange
+        }
+    });
 }
+
+// Función que se ejecuta cuando el reproductor está listo
+function onPlayerReady(event) {
+    console.log("Reproductor de YouTube listo.");
+    // Establecer el volumen inicial al 50%
+    player.setVolume(50);
+}
+
+// Función que se ejecuta cuando el estado del reproductor cambia
+function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.ENDED) {
+        player.playVideo(); // Repetir el video cuando termine
+    }
+}
+
+// Función para reproducir la música
+function playMusic() {
+    player.playVideo();
+}
+
+// Función para pausar la música
+function pauseMusic() {
+    player.pauseVideo();
+}
+
+// Función para cambiar el volumen
+function changeVolume(volume) {
+    player.setVolume(volume
