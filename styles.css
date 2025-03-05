@@ -5,17 +5,19 @@ body {
     padding: 0;
     background-color: #1a1a1a;
     color: white;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
 }
 
 /* Barra de navegación */
 nav {
     display: flex;
-    justify-content: flex-end; /* Alinea los enlaces de navegación a la derecha */
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    background-color: #ff0000;
+    background-color: #333;
+}
+
+nav .logo img {
+    height: 50px;
 }
 
 nav .nav-links {
@@ -39,35 +41,64 @@ nav .nav-links a:hover {
     text-align: center;
     padding: 100px 20px;
     background-color: #222;
-    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
 }
 
-.center-logo {
-    width: 100px; /* Aumenta el ancho del logo a 100px */
-    height: auto; /* Mantiene la proporción del logo */
-    margin-bottom: 20px; /* Espacio debajo del logo */
-}
-
-.zaibatsu-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700; /* Negrita */
+.hero h1 {
     font-size: 48px;
-    margin: 20px 0 10px;
+    margin-bottom: 20px;
 }
 
-.japan-restaurant {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400; /* Regular */
+.hero p {
     font-size: 24px;
     margin-bottom: 40px;
+}
+
+.hero .btn {
+    background-color: red;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.hero .btn:hover {
+    background-color: darkred;
 }
 
 /* Pie de página */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #ff0000;
-    margin-top: auto; /* Asegura que el pie de página esté al final */
+    background-color: #333;
+    margin-top: 50px;
 }
 
-/* Controles de
+/* Reproductor de música */
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.music-player button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.music-player button:hover {
+    color: red;
+}
+
+.music-player input[type="range"] {
+    width: 100px;
+}
