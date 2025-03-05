@@ -23,14 +23,17 @@
         </div>
     </div>
 
-    <!-- Pie de página con controles de música -->
-    <div class="footer">
+    <!-- Controles de música -->
+    <div class="music-controls-container">
         <div class="music-controls">
             <button id="play-button" onclick="playMusic()">&#9658;</button>
             <button id="pause-button" onclick="pauseMusic()">&#10074;&#10074;</button>
             <input type="range" id="volume-slider" min="0" max="100" value="50" oninput="changeVolume(this.value)">
         </div>
     </div>
+
+    <!-- Pie de página -->
+    <div class="footer"></div>
 
     <!-- Reproductor de YouTube (oculto) -->
     <div id="youtube-player"></div>

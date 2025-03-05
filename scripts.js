@@ -37,14 +37,30 @@ function onPlayerStateChange(event) {
 
 // Función para reproducir la música
 function playMusic() {
-    player.playVideo();
+    if (player && player.playVideo) {
+        player.playVideo();
+        console.log("Reproduciendo música...");
+    } else {
+        console.error("El reproductor no está listo.");
+    }
 }
 
 // Función para pausar la música
 function pauseMusic() {
-    player.pauseVideo();
+    if (player && player.pauseVideo) {
+        player.pauseVideo();
+        console.log("Música pausada.");
+    } else {
+        console.error("El reproductor no está listo.");
+    }
 }
 
 // Función para cambiar el volumen
 function changeVolume(volume) {
-    player.setVolume(volume
+    if (player && player.setVolume) {
+        player.setVolume(volume);
+        console.log("Volumen cambiado a:", volume);
+    } else {
+        console.error("El reproductor no está listo.");
+    }
+}
