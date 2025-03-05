@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.background {
+    background-color: #3e3e3e;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    font-size: 48px;
+    font-weight: 900; /* Montserrat Black */
+}
+
+.subtitle {
+    color: white;
+    font-size: 24px;
+    font-weight: 400; /* Montserrat Regular */
+}
+
+.welcome {
+    color: white;
+    font-weight: 700; /* Montserrat Bold */
+    margin: 20px 0;
+}
+
+.play-button-container {
+    background-color: #ff0000;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.play-button {
+    color: white;
+    font-size: 36px;
+    text-decoration: none;
+}
