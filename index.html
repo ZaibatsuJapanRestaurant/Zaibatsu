@@ -13,7 +13,7 @@
 
     <!-- Contenido principal -->
     <div class="content">
-        <img src="logo.png" alt="Logo Zaibatsu" class="logo">
+        <img src="img/logo.png" alt="Logo Zaibatsu" class="logo">
         <h1>ZAIBATSU</h1>
         <h2>Japan Restaurant</h2>
         <p>Bienvenidos a Zaibatsu</p>
@@ -26,11 +26,17 @@
     <!-- Pie de página -->
     <div class="footer"></div>
 
-    <!-- Audio para la música -->
-    <audio id="background-music" autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
+    <!-- Reproductor de SoundCloud -->
+    <div class="soundcloud-player">
+        <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1737328294&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+        </iframe>
+    </div>
 
     <script src="script.js"></script>
 </body>

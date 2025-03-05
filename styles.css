@@ -64,11 +64,3 @@ p {
     border-radius: 10px;
     display: inline-block;
 }
-
-.play-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-}
