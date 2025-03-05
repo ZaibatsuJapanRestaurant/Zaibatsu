@@ -25,9 +25,6 @@ body {
 
 .footer {
     bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .content {
@@ -35,8 +32,8 @@ body {
 }
 
 .logo {
-    width: 150px;
-    margin-bottom: 20px;
+    width: 200px;
+    margin-bottom: 1px;
 }
 
 h1 {
@@ -50,20 +47,20 @@ h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.5rem;
-    margin: 10px 0;
+    margin: 0px 0;
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat';
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 5px 0;
 }
 
 .play-button-container {
     margin-top: 20px;
     background-color: #ff0000;
-    padding: 10px 70px;
+    padding: 2px 70px;
     border-radius: 10px;
     display: inline-block;
 }
@@ -76,6 +73,21 @@ p {
     cursor: pointer;
 }
 
+/* Contenedor de controles de música */
+.music-controls-container {
+    position: fixed;
+    bottom: 70px; /* Encima del pie de página */
+    left: 93%;
+    transform: translateX(-50%);
+    background-color: #ff0000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Controles de música */
 .music-controls {
     display: flex;
     align-items: center;
@@ -90,7 +102,29 @@ p {
     cursor: pointer;
 }
 
+/* Estilo de la barra de volumen */
 .music-controls input[type="range"] {
     width: 100px;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+    height: 5px;
+    appearance: none; /* Elimina el estilo por defecto */
+}
+
+.music-controls input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 15px;
+    background: #ff0000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.music-controls input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ff0000;
+    border-radius: 50%;
     cursor: pointer;
 }
