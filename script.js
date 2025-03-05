@@ -26,6 +26,7 @@ function onPlayerReady(event) {
     console.log("Reproductor de YouTube listo.");
     // Establecer el volumen inicial al 50%
     player.setVolume(50);
+    // No reproduzcas el video automáticamente aquí
 }
 
 // Función que se ejecuta cuando el estado del reproductor cambia
@@ -64,3 +65,8 @@ function changeVolume(volume) {
         console.error("El reproductor no está listo.");
     }
 }
+
+// Asegúrate de que la música solo se reproduzca después de la interacción del usuario
+document.getElementById('play-button').addEventListener('click', function() {
+    playMusic();
+});
