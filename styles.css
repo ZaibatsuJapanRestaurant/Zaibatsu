@@ -114,7 +114,7 @@ p {
 
 .music-controls input[type="range"]::-webkit-slider-thumb {
     appearance: none;
-    width: 15px;
+    width: 10px;
     height: 15px;
     background: #ff0000;
     border-radius: 50%;
