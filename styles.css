@@ -13,7 +13,7 @@ body {
 /* Barra de navegación */
 nav {
     display: flex;
-    justify-content: center; /* Centra los enlaces de navegación */
+    justify-content: flex-end; /* Alinea los enlaces de navegación a la derecha */
     padding: 20px;
     background-color: #ff0000;
 }
@@ -43,7 +43,7 @@ nav .nav-links a:hover {
 }
 
 .center-logo {
-    width: 50px; /* Establece el ancho del logo a 50px */
+    width: 100px; /* Aumenta el ancho del logo a 100px */
     height: auto; /* Mantiene la proporción del logo */
     margin-bottom: 20px; /* Espacio debajo del logo */
 }
@@ -73,22 +73,4 @@ footer {
 /* Controles de música */
 .music-controls {
     position: fixed; /* Fija el reproductor de música */
-    bottom: 60px; /* Espacio desde la parte inferior */
-    right: 20px; /* Espacio desde la derecha */
-    display: flex;
-    align-items: center;
-}
-
-.music-controls button {
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.music-controls input[type="range"] {
-    width: 100px; /* Ajusta el ancho de la barra de volumen */
-}
+    bottom: 80px; /* Aument
