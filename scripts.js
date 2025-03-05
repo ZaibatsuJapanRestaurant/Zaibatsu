@@ -1,9 +1,8 @@
-// Aquí puedes añadir interacciones con JavaScript
-// Por ejemplo, animaciones o funcionalidades adicionales
-
 // scripts.js
 document.addEventListener("DOMContentLoaded", function() {
     const audio = document.getElementById("background-music");
+    const playButton = document.getElementById("play-button");
+    const pauseButton = document.getElementById("pause-button");
 
     // Verificar si la música ya está en reproducción
     if (localStorage.getItem("musicPlaying") === "true") {
@@ -19,5 +18,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     audio.addEventListener("pause", function() {
         localStorage.setItem("musicPlaying", "false");
+    });
+
+    // Controlar la reproducción
+    playButton.addEventListener("click", function() {
+        audio.play();
+    });
+
+    pauseButton.addEventListener("click", function() {
+        audio.pause();
     });
 });
