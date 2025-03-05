@@ -44,34 +44,27 @@ nav .nav-links a:hover {
     text-align: center;
     padding: 100px 20px;
     background-color: #222;
+    flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
 }
 
-.hero h1 {
+.center-logo {
+    max-width: 100px; /* Ajusta el tamaño del logo */
+}
+
+.zaibatsu-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; /* Negrita */
     font-size: 48px;
-    margin-bottom: 20px;
+    margin: 20px 0 10px;
 }
 
-.hero p {
+.japan-restaurant {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Regular */
     font-size: 24px;
     margin-bottom: 40px;
 }
 
-.hero .btn {
-    background-color: red;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 18px;
-}
-
-.hero .btn:hover {
-    background-color: darkred;
-}
-
-/* Pie de página */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ff0000;
-    margin-top: auto; /* Aseg
+.hero p {
+    font-size: 24px;
+   
