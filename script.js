@@ -1,4 +1,5 @@
 let player;
+let isPlayerReady = false; // Variable para verificar si el reproductor está listo
 
 // Función para inicializar el reproductor de YouTube
 function onYouTubeIframeAPIReady() {
@@ -24,8 +25,8 @@ function onYouTubeIframeAPIReady() {
 // Función que se ejecuta cuando el reproductor está listo
 function onPlayerReady(event) {
     console.log("Reproductor de YouTube listo.");
-    // Establecer el volumen inicial al 50%
-    player.setVolume(50);
+    isPlayerReady = true; // Marcar el reproductor como listo
+    player.setVolume(50); // Establecer el volumen inicial al 50%
 }
 
 // Función que se ejecuta cuando el estado del reproductor cambia
@@ -37,7 +38,7 @@ function onPlayerStateChange(event) {
 
 // Función para reproducir la música
 function playMusic() {
-    if (player && player.playVideo) {
+    if (isPlayerReady && player && player.playVideo) {
         player.playVideo();
         console.log("Reproduciendo música...");
     } else {
@@ -47,7 +48,7 @@ function playMusic() {
 
 // Función para pausar la música
 function pauseMusic() {
-    if (player && player.pauseVideo) {
+    if (isPlayerReady && player && player.pauseVideo) {
         player.pauseVideo();
         console.log("Música pausada.");
     } else {
@@ -57,7 +58,7 @@ function pauseMusic() {
 
 // Función para cambiar el volumen
 function changeVolume(volume) {
-    if (player && player.setVolume) {
+    if (isPlayerReady && player && player.setVolume) {
         player.setVolume(volume);
         console.log("Volumen cambiado a:", volume);
     } else {
