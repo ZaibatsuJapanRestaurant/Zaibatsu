@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaibatsu - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Banner superior con botones de navegación -->
+    <header class="banner">
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="showSection('home')">Inicio</button>
+            <button class="nav-button" onclick="showSection('about')">Sobre nosotros</button>
+            <button class="nav-button" onclick="showSection('menu')">Menú</button>
+            <button class="nav-button" onclick="showSection('contact')">Contacto</button>
+            <button class="nav-button" onclick="showSection('curiosities')">Curiosidades</button>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de Inicio -->
+        <section id="home" class="content active">
+            <img src="img/logo.png" alt="Logo Zaibatsu" class="logo">
+            <h1>ZAIBATSU</h1>
+            <h2>Japan Restaurant</h2>
+        </section>
+
+        <!-- Sección Sobre Nosotros -->
+<section id="about" class="content hidden">
+    <div class="about-title-container">
+        <h1>Sobre Nosotros</h1>
+    </div>
+    <div class="about-container">
+        <div class="about-text">
+            <p>
+                En <strong>Zaibatsu</strong>, nos enorgullece ofrecer una experiencia culinaria auténtica y memorable. 
+                Ahora, con la inauguración de nuestro restaurante en Los Santos, queremos acercarte aún más a esta experiencia única. 
+                Nuestro objetivo es que, desde el primer bocado, te sientas como si estuvieras en Japón.
+                Combinamos ingredientes frescos con técnicas culinarias tradicionales para ofrecerte sabores genuinos y memorables.
+            </p>
+            <p>
+                Nuestro equipo de chefs, liderados por el reconocido <strong>Kai Shimizu</strong>, trabaja 
+                con pasión para brindarte platos que no solo alimentan el cuerpo, sino también el alma. 
+                Cada detalle en nuestra cocina es un homenaje a la rica cultura gastronómica japonesa.
+            </p>
+            <h3>Nuestros Valores</h3>
+            <ul class="values-list">
+                <li>🍣 Autenticidad en cada plato.</li>
+                <li>🍜 Ingredientes frescos y de alta calidad.</li>
+                <li>🍱 Servicio excepcional y atención al detalle.</li>
+                <li>🎌 Respeto por las tradiciones japonesas.</li>
+            </ul>
+        </div>
+        <div class="about-image">
+            <img src="img/about-us.jpg" alt="Equipo de Zaibatsu">
+        </div>
+    </div>
+</section>
+
+        <!-- Sección Menú -->
+        <section id="menu" class="content hidden">
+            <h1>Menú</h1>
+            <p>Nuestro delicioso menú japonés.</p>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contact" class="content hidden">
+            <h1>Contacto</h1>
+            <p>Ponte en contacto con nosotros.</p>
+        </section>
+
+        <!-- Sección Curiosidades -->
+        <section id="curiosities" class="content hidden">
+            <h1>Curiosidades</h1>
+            <p>Datos interesantes sobre la cultura japonesa.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
