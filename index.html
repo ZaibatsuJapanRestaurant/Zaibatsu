@@ -8,32 +8,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Banner superior -->
-    <div class="banner"></div>
+    <!-- Banner superior con botones de navegación -->
+    <header class="banner">
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="showSection('home')">Inicio</button>
+            <button class="nav-button" onclick="showSection('about')">Sobre nosotros</button>
+            <button class="nav-button" onclick="showSection('menu')">Menú</button>
+            <button class="nav-button" onclick="showSection('contact')">Contacto</button>
+            <button class="nav-button" onclick="showSection('curiosities')">Curiosidades</button>
+        </div>
+    </header>
 
     <!-- Contenido principal -->
-    <div class="content">
-        <img src="img/logo.png" alt="Logo Zaibatsu" class="logo">
-        <h1>ZAIBATSU</h1>
-        <h2>Japan Restaurant</h2>
-        <p>Bienvenidos a Zaibatsu</p>
-        <p>El mejor restaurante Japonés de toda la ciudad</p>
-        <div class="play-button-container">
-            <button class="play-button" onclick="navigateToNextPage()">&#9658;</button>
-        </div>
-    </div>
+    <main>
+        <!-- Sección de Inicio -->
+        <section id="home" class="content active">
+            <img src="img/logo.png" alt="Logo Zaibatsu" class="logo">
+            <h1>ZAIBATSU</h1>
+            <h2>Japan Restaurant</h2>
+        </section>
+
+        <!-- Sección Sobre Nosotros -->
+        <section id="about" class="content hidden">
+            <h1>Sobre Nosotros</h1>
+            <p>Información sobre el restaurante Zaibatsu.</p>
+        </section>
+
+        <!-- Sección Menú -->
+        <section id="menu" class="content hidden">
+            <h1>Menú</h1>
+            <p>Nuestro delicioso menú japonés.</p>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contact" class="content hidden">
+            <h1>Contacto</h1>
+            <p>Ponte en contacto con nosotros.</p>
+        </section>
+
+        <!-- Sección Curiosidades -->
+        <section id="curiosities" class="content hidden">
+            <h1>Curiosidades</h1>
+            <p>Datos interesantes sobre la cultura japonesa.</p>
+        </section>
+    </main>
 
     <!-- Controles de música -->
-    <div class="music-controls-container">
+    <aside class="music-controls-container">
         <div class="music-controls">
             <button id="play-button" onclick="playMusic()">&#9658;</button>
             <button id="pause-button" onclick="pauseMusic()">&#10074;&#10074;</button>
             <input type="range" id="volume-slider" min="0" max="100" value="50" oninput="changeVolume(this.value)">
         </div>
-    </div>
-
-    <!-- Pie de página -->
-    <div class="footer"></div>
+    </aside>
 
     <!-- Reproductor de YouTube (oculto) -->
     <div id="youtube-player"></div>

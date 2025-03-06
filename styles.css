@@ -1,7 +1,11 @@
+/* Estilos generales */
 body {
     margin: 0;
     padding: 0;
-    background-color: #3e3e3e;
+    background-image: url('img/japanese-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     font-family: 'Montserrat', sans-serif;
     display: flex;
@@ -10,121 +14,170 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
-}
-
-.banner, .footer {
-    width: 100%;
-    height: 50px;
-    background-color: #ff0000;
-    position: fixed;
-}
-
-.banner {
-    top: 0;
-}
-
-.footer {
-    bottom: 0;
-}
-
-.content {
     text-align: center;
 }
 
-.logo {
-    width: 200px;
-    margin-bottom: 1px;
+/* Banner superior con botones de navegación */
+.banner {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 3rem;
-    margin: 0;
+.nav-buttons {
+    display: flex;
+    gap: 15px;
 }
 
-h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 1.5rem;
-    margin: 0px 0;
-}
-
-p {
-    font-family: 'Montserrat';
-    font-weight: 700;
-    font-size: 1rem;
-    margin: 5px 0;
-}
-
-.play-button-container {
-    margin-top: 20px;
-    background-color: #ff0000;
-    padding: 2px 70px;
-    border-radius: 10px;
-    display: inline-block;
-}
-
-.play-button {
+.nav-button {
     background: none;
     border: none;
     color: white;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: background 0.3s, transform 0.3s;
 }
 
-/* Contenedor de controles de música */
+.nav-button:hover {
+    background-color: rgba(204, 0, 0, 0.9);
+    transform: scale(1.05);
+}
+
+/* Contenido principal */
+.content {
+    margin-top: 80px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.content.active {
+    opacity: 1;
+    display: block;
+}
+
+/* Logo */
+.logo {
+    width: 180px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Títulos */
+h1 {
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 5px 0;
+    opacity: 0.9;
+    color: #ffffff;
+}
+
+p {
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 8px 0;
+    opacity: 0.8;
+    color: #ffffff;
+}
+
+/* Pie de página */
+.footer {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0.9);
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Controles de música */
 .music-controls-container {
     position: fixed;
-    bottom: 70px; /* Encima del pie de página */
-    left: 93%;
-    transform: translateX(-50%);
-    background-color: #ff0000;
+    bottom: 900px; /* Ajusta esto según tu diseño */
+    right: 20px;
+    background-color: rgba(255, 0, 0, 0); /* Ajusta el color de fondo si es necesario */
     padding: 10px 20px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+    width: 300px; /* Ancho fijo para el contenedor */
 }
 
-/* Controles de música */
+/* Contenedor de la barra de progreso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+/* Estilos para los botones de play/pausa y volumen */
 .music-controls {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
+/* Estilos para los botones de play/pausa */
 .music-controls button {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* Estilo de la barra de volumen */
+.music-controls button:hover {
+    color: #ffcccc;
+}
+
+/* Estilos para la barra de volumen */
 .music-controls input[type="range"] {
-    width: 100px;
+    width: 80px; /* Ancho fijo para la barra de volumen */
     cursor: pointer;
+    accent-color: white;
     background: white;
     border-radius: 5px;
     height: 5px;
-    appearance: none; /* Elimina el estilo por defecto */
 }
 
-.music-controls input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    width: 10px;
-    height: 15px;
-    background: #ff0000;
-    border-radius: 50%;
+/* Estilos para la barra de progreso */
+#progress-bar {
+    width: 100%; /* Ocupa todo el ancho disponible */
     cursor: pointer;
+    accent-color: white;
+    background: white;
+    border-radius: 5px;
+    height: 5px;
 }
 
-.music-controls input[type="range"]::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: #ff0000;
-    border-radius: 50%;
-    cursor: pointer;
+/* Estilos para los tiempos (current-time y total-time) */
+#current-time, #total-time {
+    font-size: 0.9rem;
+    color: white;
+    min-width: 40px; /* Ancho mínimo para evitar que se muevan los elementos */
+    text-align: center;
 }

@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaibatsu - Siguiente Página</title>
+    <title>Zaibatsu - Explorar</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Banner superior -->
-    <div class="banner"></div>
-
-    <!-- Contenido principal -->
-    <div class="content">
-        <h1>Próximamente...</h1>
+    <!-- Botón para volver a la página principal -->
+    <div class="back-button-container">
+        <button class="back-button" onclick="goBack()">◄ Volver</button>
     </div>
 
+    <!-- Banner superior -->
+    <header class="banner"></header>
+
+    <!-- Panel de botones a la izquierda -->
+    <aside class="button-panel">
+        <button class="nav-button" onclick="navigateTo('sobre-nosotros.html')">Sobre nosotros</button>
+        <button class="nav-button" onclick="navigateTo('menu.html')">Menú</button>
+        <button class="nav-button" onclick="navigateTo('contacto.html')">Contacto</button>
+        <button class="nav-button" onclick="navigateTo('curiosidades.html')">Curiosidades</button>
+    </aside>
+
+    <!-- Logo en el centro -->
+    <div class="logo-container">
+        <img src="img/logo.png" alt="Logo Zaibatsu" class="logo">
+    </div>
+
+    <!-- Controles de música -->
+    <aside class="music-controls-container">
+        <div class="music-controls">
+            <button id="play-button" onclick="playMusic()">&#9658;</button>
+            <button id="pause-button" onclick="pauseMusic()">&#10074;&#10074;</button>
+            <input type="range" id="volume-slider" min="0" max="100" value="50" oninput="changeVolume(this.value)">
+        </div>
+    </aside>
+
     <!-- Pie de página -->
-    <div class="footer"></div>
+    <footer class="footer"></footer>
 
-    <!-- Audio para la música -->
-    <audio id="background-music" autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-    </audio>
+    <!-- Reproductor de YouTube (oculto) -->
+    <div id="youtube-player"></div>
 
+    <!-- Cargar la API de YouTube -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>

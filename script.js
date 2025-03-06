@@ -1,18 +1,19 @@
 let player;
+let isPlaying = false;
 
-// Función para inicializar el reproductor de YouTube
+// Inicializa el reproductor de YouTube
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtube-player', {
         height: '0',
         width: '0',
-        videoId: '4ZBLaHCh8Bs', // ID del video de YouTube
+        videoId: '4ZBLaHCh8Bs', // Cambia este ID por el de tu video
         playerVars: {
-            autoplay: 0, // No autoplay (requiere interacción del usuario)
-            controls: 0, // Sin controles
-            disablekb: 1, // Deshabilitar teclado
-            modestbranding: 1, // Ocultar logo de YouTube
-            loop: 1, // Repetir el video
-            playlist: '4ZBLaHCh8Bs' // Necesario para el loop
+            autoplay: 0,
+            controls: 0,
+            disablekb: 1,
+            modestbranding: 1,
+            loop: 1,
+            playlist: '4ZBLaHCh8Bs' // Repite el mismo video
         },
         events: {
             onReady: onPlayerReady,
@@ -21,18 +22,17 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
-// Función que se ejecuta cuando el reproductor está listo
+// Ejecutar cuando el reproductor esté listo
 function onPlayerReady(event) {
     console.log("Reproductor de YouTube listo.");
-    // Establecer el volumen inicial al 50%
-    player.setVolume(50);
-    // No reproduzcas el video automáticamente aquí
+    player.setVolume(50); // Volumen inicial al 50%
+    updateProgressBar();
 }
 
-// Función que se ejecuta cuando el estado del reproductor cambia
+// Repetir el video cuando termine
 function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.ENDED) {
-        player.playVideo(); // Repetir el video cuando termine
+        player.playVideo(); // Repetir el video
     }
 }
 
@@ -40,9 +40,10 @@ function onPlayerStateChange(event) {
 function playMusic() {
     if (player && player.playVideo) {
         player.playVideo();
+        isPlaying = true;
+        togglePlayPauseButton();
+        updateProgressBar();
         console.log("Reproduciendo música...");
-    } else {
-        console.error("El reproductor no está listo.");
     }
 }
 
@@ -50,9 +51,9 @@ function playMusic() {
 function pauseMusic() {
     if (player && player.pauseVideo) {
         player.pauseVideo();
+        isPlaying = false;
+        togglePlayPauseButton();
         console.log("Música pausada.");
-    } else {
-        console.error("El reproductor no está listo.");
     }
 }
 
@@ -61,12 +62,70 @@ function changeVolume(volume) {
     if (player && player.setVolume) {
         player.setVolume(volume);
         console.log("Volumen cambiado a:", volume);
-    } else {
-        console.error("El reproductor no está listo.");
     }
 }
 
-// Asegúrate de que la música solo se reproduzca después de la interacción del usuario
-document.getElementById('play-button').addEventListener('click', function() {
-    playMusic();
+// Alternar iconos de reproducción y pausa
+function togglePlayPauseButton() {
+    document.getElementById('play-button').style.display = isPlaying ? 'none' : 'inline';
+    document.getElementById('pause-button').style.display = isPlaying ? 'inline' : 'none';
+}
+
+// Actualizar la barra de progreso de la música
+function updateProgressBar() {
+    if (player && player.getCurrentTime) {
+        setInterval(() => {
+            let currentTime = player.getCurrentTime();
+            let duration = player.getDuration();
+            let progress = (currentTime / duration) * 100;
+            document.getElementById('progress-bar').value = progress;
+            document.getElementById('current-time').innerText = formatTime(currentTime);
+            document.getElementById('total-time').innerText = formatTime(duration);
+        }, 1000);
+    }
+}
+
+// Formatear tiempo en mm:ss
+function formatTime(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+// Ajustar botones al cargar la página
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('pause-button').style.display = 'none';
+
+    // Crear barra de progreso si no existe
+    if (!document.getElementById('progress-bar')) {
+        let progressBarContainer = document.createElement('div');
+        progressBarContainer.classList.add('progress-container');
+        progressBarContainer.innerHTML = `
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" max="100" value="0" disabled>
+            <span id="total-time">0:00</span>
+        `;
+        document.querySelector('.music-controls-container').appendChild(progressBarContainer);
+    }
+});
+
+// Función para mostrar una sección y ocultar las demás
+function showSection(sectionId) {
+    // Ocultar todas las secciones
+    document.querySelectorAll('.content').forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
+    });
+
+    // Mostrar la sección seleccionada
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.classList.add('active');
+        section.style.display = 'block';
+    }
+}
+
+// Mostrar la sección de inicio por defecto
+document.addEventListener('DOMContentLoaded', function () {
+    showSection('home');
 });
