@@ -12,6 +12,11 @@ function showSection(sectionId) {
         section.classList.add('active');
         section.style.display = 'block';
     }
+
+    // Resetear la sección de menú si se cambia de página
+    if (sectionId !== 'menu') {
+        showCategories();
+    }
 }
 
 // Función para abrir el modal con la imagen ampliada
