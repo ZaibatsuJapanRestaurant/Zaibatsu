@@ -86,16 +86,6 @@ body {
     text-align: center;
 }
 
-/* Estilos específicos para la página de inicio (logo) */
-#home {
-    margin-top: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
 /* Logo */
 .logo {
     width: 200px;
@@ -351,4 +341,61 @@ p {
     white-space: normal; /* Evita que el texto se corte */
     overflow: visible; /* Permite que el texto fluya */
     text-overflow: clip; /* Evita el recorte del texto */
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .carousel-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .carousel-text p {
+        font-size: 0.9rem;
+    }
+
+    #curiosities {
+        margin-top: 50px;
+    }
+
+    .carousel-text {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .carousel-button {
+        font-size: 1rem;
+        padding: 5px 10px;
+    }
+
+    .carousel-text p.full-text {
+        font-size: 0.9rem;
+        white-space: normal;
+    }
+
+    .carousel {
+        flex-direction: column;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+    }
+
+    .content {
+        margin-top: 100px;
+    }
+
+    .logo {
+        width: 150px;
+    }
 }
