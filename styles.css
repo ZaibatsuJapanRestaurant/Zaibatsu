@@ -399,3 +399,54 @@ p {
         width: 150px;
     }
 }
+
+/* Estilos para la sección "Multimedia" */
+#multimedia {
+    margin-top: 100px;
+}
+
+.multimedia-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%; /* Cambiado a 100% para que sea responsivo */
+    height: auto; /* Cambiado a auto para que se ajuste al contenido */
+}
+
+.multimedia-container iframe {
+    width: 100%; /* El iframe ocupa el 100% del contenedor */
+    height: 600px; /* Altura fija para pantallas grandes */
+    border-radius: 10px;
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    .multimedia-container {
+        padding: 10px; /* Reducir el padding en móviles */
+    }
+
+    .multimedia-container iframe {
+        height: 250px; /* Reducir la altura del iframe en móviles */
+    }
+}
+
+.multimedia-title-container {
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.9);
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.multimedia-title-container h1 {
+    font-size: 2rem;
+    margin: 0;
+}
